@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import styled from "react-emotion";
+
+const Container = styled("div")`
+  height: 100%;
+  width: 100%;
+  border: 1px solid red;
+`;
+
+const Header = styled("h1")`
+  display: flex;
+  padding: 10px 25px;
+`;
 
 class App extends Component {
+  componentWillMount() {}
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Container>
+        <Header>Attuned Blog</Header>
+      </Container>
     );
   }
 }
