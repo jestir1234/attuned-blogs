@@ -1,7 +1,7 @@
 import { createStore } from "redux";
-import getReducers from "../reducers";
+import reducers from "../reducers";
 
 export const initialStore = (initialState?: Object) => {
-  let store = createStore(getReducers(), initialState || {});
+  let store = createStore(reducers, initialState || {});
   return store;
 };

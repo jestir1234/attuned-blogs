@@ -1,12 +1,12 @@
-const initialState = {};
+const initialState = [];
 
-const blogsReducer = (state = initialState) => {
-  switch (bindActionCreators.type) {
+const blogs = (state = initialState, action) => {
+  switch (action.type) {
     case "ADD_BLOGS":
-      return action.payload;
+      return action.payload ? action.payload : state;
     default:
       return state;
   }
 };
 
-export default blogsReducer;
+export default blogs;

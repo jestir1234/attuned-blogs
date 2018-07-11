@@ -1,8 +1,7 @@
 // @flow
-import blogsReducer from "./blogs";
+import blogs from "./blogs";
+import { combineReducers } from "redux";
 
-const getReducers = () => {
-  return blogsReducer;
-};
-
-export default getReducers;
+export default combineReducers({
+  blogs
+});
