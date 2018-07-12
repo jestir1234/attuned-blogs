@@ -1,6 +1,7 @@
+// @flow
 const initialState = [];
 
-const blogs = (state = initialState, action) => {
+const blogs = (state: array = initialState, action: object) => {
   switch (action.type) {
     case "ADD_BLOGS":
       return action.payload ? action.payload : state;

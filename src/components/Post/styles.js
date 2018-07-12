@@ -10,7 +10,7 @@ export const PostItemContainer = styled("div")(props => ({
   border: "1px solid black",
   animation: `${fade} 1s ease-in-out`,
   height: "90px",
-  margin: "5px",
+  margin: "5px 0px",
   backgroundColor: "#fff",
   overflow: "scroll"
 }));

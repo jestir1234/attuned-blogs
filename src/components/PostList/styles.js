@@ -7,11 +7,6 @@ export const Container = styled("div")`
   width: 100%;
 `;
 
-export const Header = styled("h1")`
-  display: flex;
-  padding: 10px 25px;
-`;
-
 export const PostsContainer = styled("div")`
   margin: 20px;
 `;
