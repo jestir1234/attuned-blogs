@@ -1,14 +1,6 @@
 // @flow
 import React from "react";
-import styled from "react-emotion";
-
-const PostItemContainer = styled("div")(props => ({
-  height: "200px",
-  width: "100%"
-}));
-
-const PostHeader = styled("h3")(props => ({}));
-const PostBody = styled("div")(props => ({}));
+import { PostItemContainer, PostHeader, PostBody } from "./styles";
 
 type Props = {
   post: {
@@ -18,7 +10,6 @@ type Props = {
 };
 
 const Post = ({ post: { title, body } }: Props) => {
-  console.log(title, body);
   return (
     <PostItemContainer>
       <PostHeader>{title}</PostHeader>
