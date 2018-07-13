@@ -127,7 +127,10 @@ const filterBlogs = (blogs: Array<PostItem>, searchString: String) => {
   );
 };
 
-const mapStateToProps = (state: Object, { searchString }) => ({
+const mapStateToProps = (
+  state: Object,
+  { searchString }: { searchString: String }
+) => ({
   blogs: filterBlogs(state.blogs, searchString)
 });
 
