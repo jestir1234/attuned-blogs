@@ -1,6 +1,8 @@
 // @flow
 
-export const addBlogs = (payload: Array<Object>) => ({
+import type { PostItem } from "../types";
+
+export const addBlogs = (payload: Array<?PostItem>) => ({
   type: "ADD_BLOGS",
   payload
 });

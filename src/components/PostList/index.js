@@ -10,10 +10,12 @@ import {
   ButtonsContainer,
   PageButton
 } from "./styles";
+import type { PostItem } from "../../types";
 
 type Props = {
-  blogs: array<?Object>,
-  searchString: string
+  blogs: Array<?PostItem>,
+  searchString: String,
+  addBlogs: (payload?: Array<?PostItem>) => void
 };
 
 type State = {
@@ -22,7 +24,7 @@ type State = {
 };
 
 class PostList extends Component<Props, State> {
-  constructor(props: object) {
+  constructor(props: Object) {
     super(props);
     this.state = {
       pageMax: 10, // Maximum posts per page.
@@ -32,12 +34,13 @@ class PostList extends Component<Props, State> {
 
   static defaultProps = {
     blogs: [],
-    searchString: ""
+    searchString: "",
+    addBlogs: () => ({})
   };
 
   componentWillMount() {
     // Fetch blogs when the page is about to be rendered.
-    fetchBlogs().then(data => {
+    fetchBlogs().then((data?: Array<?PostItem>) => {
       // Update Redux store with blogs.
       this.props.addBlogs(data);
     });
@@ -54,7 +57,7 @@ class PostList extends Component<Props, State> {
   }
 
   setNextPage = () => {
-    // Update to the next 10 posts if we haven't reached the end of the posts list.
+    // Navigate to the next page of posts if we haven't reached the end of the posts list.
     this.state.currentLastPost < this.props.blogs.length &&
       this.setState({
         currentLastPost: this.state.currentLastPost + this.state.pageMax
@@ -62,7 +65,7 @@ class PostList extends Component<Props, State> {
   };
 
   setPreviousPage = () => {
-    // Update to the previous 10 posts if we haven't reached the beginning of the posts list.
+    // Navigate to the previous page of posts if we haven't reached the beginning of the posts list.
     this.state.currentLastPost !== 10 &&
       this.setState({
         currentLastPost: this.state.currentLastPost - this.state.pageMax
@@ -70,7 +73,6 @@ class PostList extends Component<Props, State> {
   };
 
   render() {
-    console.log("CURRENT STATE", this.state);
     let startingPostOnPage = this.props.blogs.length
       ? this.state.currentLastPost - this.state.pageMax + 1
       : 0;
@@ -90,9 +92,7 @@ class PostList extends Component<Props, State> {
               this.state.currentLastPost - this.state.pageMax,
               this.state.currentLastPost
             )
-            .map(post => {
-              return <Post key={post.id} post={post} />;
-            })}
+            .map((post: PostItem) => <Post key={post.id} post={post} />)}
         </PostsContainer>
 
         <ButtonsContainer>
@@ -114,23 +114,20 @@ class PostList extends Component<Props, State> {
   }
 }
 
-const filterBlogs = (blogs: array<Object>, searchString: string) => {
+const filterBlogs = (blogs: Array<PostItem>, searchString: String) => {
   if (!searchString) {
     return blogs;
   }
-
-  return blogs.filter(post => {
-    return (
+  // Filter post titles and body with search string
+  return blogs.filter(
+    post =>
       post.title.includes(searchString) || post.body.includes(searchString)
-    );
-  });
+  );
 };
 
-const mapStateToProps = (state: Object, { searchString }: string) => {
-  return {
-    blogs: filterBlogs(state.blogs, searchString)
-  };
-};
+const mapStateToProps = (state: Object, { searchString }) => ({
+  blogs: filterBlogs(state.blogs, searchString)
+});
 
 const mapDispatchToProps = {
   addBlogs

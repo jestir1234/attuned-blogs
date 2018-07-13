@@ -7,7 +7,9 @@ type State = {
   searchString: string
 };
 
-class App extends Component<State> {
+type Props = {};
+
+class App extends Component<Props, State> {
   state = { searchString: "" };
 
   handleSearchInput = (e: Object) => {
