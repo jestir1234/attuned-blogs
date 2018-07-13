@@ -14,7 +14,7 @@ import type { PostItem } from "../../types";
 
 type Props = {
   blogs: Array<?PostItem>,
-  searchString: String,
+  searchString: string,
   addBlogs: (payload?: Array<?PostItem>) => void
 };
 
@@ -116,7 +116,7 @@ class PostList extends Component<Props, State> {
   }
 }
 
-const filterBlogs = (blogs: Array<PostItem>, searchString: String) => {
+const filterBlogs = (blogs: Array<PostItem>, searchString: string) => {
   if (!searchString) {
     return blogs;
   }
@@ -129,7 +129,7 @@ const filterBlogs = (blogs: Array<PostItem>, searchString: String) => {
 
 const mapStateToProps = (
   state: Object,
-  { searchString }: { searchString: String }
+  { searchString }: { searchString: string }
 ) => ({
   blogs: filterBlogs(state.blogs, searchString)
 });

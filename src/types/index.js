@@ -1,6 +1,6 @@
 export type PostItem = {
-  body: String,
+  body: string,
   id: number,
-  title: String,
+  title: string,
   userId: number
 };
