@@ -97,12 +97,14 @@ class PostList extends Component<Props, State> {
 
         <ButtonsContainer>
           <PageButton
+            role="presentation"
             onClick={this.setPreviousPage}
             disabled={this.state.currentLastPost === 10}
           >
             Previous
           </PageButton>
           <PageButton
+            role="presentation"
             onClick={this.setNextPage}
             disabled={this.state.currentLastPost >= this.props.blogs.length}
           >
