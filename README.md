@@ -2,9 +2,9 @@
 
 ## Getting Started
 - Clone the repo.
-- cd into the project and run `yarn` to install the dependencies.
-- Run `yarn start` to start the local server
-- View app at http://localhost:3000/
+- CD into `/attuned-blogs` and run `yarn` to install the dependencies.
+- Run `yarn start` to start the local server.
+- View the App at http://localhost:3000/.
 
 ## App Structure
 
@@ -40,8 +40,8 @@ src/
 ```
 
 ## Technologies Used
-- React.js for creating frontend components
-- Redux for state management
-- Fetch API for requests
-- Emotion/React-Emotion for styling with css-in-js
-- Flow for type-checking
+- [React.js](https://reactjs.org/) for creating frontend components
+- [Redux](https://redux.js.org/) for state management
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) for requests
+- [Emotion/React-Emotion](https://emotion.sh/) for styling with css-in-js
+- [Flow](https://flow.org/en/docs/getting-started/) for type-checking
